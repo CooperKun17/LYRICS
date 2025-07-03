@@ -5,7 +5,7 @@ import subprocess
 from threading import Thread
 
 # 🎶 Ruta al archivo MP3
-AUDIO_PATH = r"D:\Users\Usuario\Downloads\LYRICS\Coyote.mp3"
+AUDIO_PATH = r"D:\Users\Usuario\Downloads\LYRICS\COYOTE.mp3"
 
 # 🛠️ Verifica e instala playsound automáticamente
 try:

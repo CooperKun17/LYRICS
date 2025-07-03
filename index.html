@@ -13,7 +13,7 @@
 
   <!-- 🎵 Reproductor de audio oculto -->
   <audio id="player" class="hidden">
-    <source src="Coyote.mp3" type="audio/mp3" />
+    <source src="COYOTE.mp3" type="audio/mp3" />
   </audio>
 
   <!-- ▶️ Botón para iniciar la música -->
@@ -26,24 +26,12 @@
     <div id="progress-bar" class="h-full bg-blue-400 transition-all duration-300" style="width: 0%"></div>
   </div>
 
-  <!-- 🎤 Contenedor de letra sincronizada -->
+  <!-- 🎤 Contenedor de letras sincronizadas -->
   <div id="lyrics" class="text-xl font-semibold text-center min-h-[100px] transition-all duration-300">
     <div class="highlight">🔊 Esperando inicio...</div>
   </div>
 
   <!-- 📜 Script principal -->
   <script src="script.js"></script>
-
-  <!-- 🚀 Script para autoplay al hacer clic -->
-  <script>
-    document.getElementById("start").addEventListener("click", () => {
-      const audio = document.getElementById("player");
-      audio.play().then(() => {
-        document.getElementById("start").style.display = "none";
-      }).catch(() => {
-        alert("El navegador bloqueó el inicio automático. Intenta hacer clic nuevamente.");
-      });
-    });
-  </script>
-
 </body>
+</html>

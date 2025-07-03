@@ -1,7 +1,6 @@
 const audio = document.getElementById("player");
 const lyricsContainer = document.getElementById("lyrics");
 const progressBar = document.getElementById("progress-bar");
-const counter = document.getElementById("counter");
 
 const lyrics = [
   { time: 37.0, text: "Ask me why my heart's inside my throat" },
@@ -42,16 +41,16 @@ const lyrics = [
 
 let lastLine = "";
 
+// 🔁 Actualizar letra y progreso mientras se reproduce
 audio.ontimeupdate = () => {
   const currentTime = audio.currentTime;
   const duration = audio.duration || 1;
 
-  
-  // Barra de progreso
+  // 📊 Barra de progreso
   const percent = (currentTime / duration) * 100;
   progressBar.style.width = percent + "%";
 
-  // Letras
+  // 🎵 Letra actual
   const index = lyrics.findLastIndex(line => currentTime >= line.time);
   if (index !== -1) {
     const currentLine = lyrics[index].text;
@@ -66,3 +65,12 @@ audio.ontimeupdate = () => {
     }
   }
 };
+
+// ▶️ Activar audio al hacer clic
+document.getElementById("start").addEventListener("click", () => {
+  audio.play().then(() => {
+    document.getElementById("start").style.display = "none";
+  }).catch(() => {
+    alert("El navegador bloqueó la reproducción automática. Haz clic nuevamente.");
+  });
+});
