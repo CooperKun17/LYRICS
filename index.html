@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karaoke - Coyote Theory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="text-white flex flex-col items-center justify-center min-h-screen p-6">
+
+  <h1 class="text-3xl font-bold mb-6">🎶 This Side of Paradise</h1>
+
+  <!-- 🎵 Reproductor de audio oculto -->
+  <audio id="player" class="hidden">
+    <source src="Coyote.mp3" type="audio/mp3" />
+  </audio>
+
+  <!-- ▶️ Botón para iniciar la música -->
+  <button id="start" class="mb-6 px-5 py-2 bg-blue-500 hover:bg-blue-600 transition text-white font-semibold rounded shadow">
+    ▶️ Iniciar Karaoke
+  </button>
+
+  <!-- 📊 Barra de progreso -->
+  <div class="w-full max-w-md h-2 bg-gray-700 rounded-full mb-4 overflow-hidden">
+    <div id="progress-bar" class="h-full bg-blue-400 transition-all duration-300" style="width: 0%"></div>
+  </div>
+
+  <!-- 🎤 Contenedor de letra sincronizada -->
+  <div id="lyrics" class="text-xl font-semibold text-center min-h-[100px] transition-all duration-300">
+    <div class="highlight">🔊 Esperando inicio...</div>
+  </div>
+
+  <!-- 📜 Script principal -->
+  <script src="script.js"></script>
+
+  <!-- 🚀 Script para autoplay al hacer clic -->
+  <script>
+    document.getElementById("start").addEventListener("click", () => {
+      const audio = document.getElementById("player");
+      audio.play().then(() => {
+        document.getElementById("start").style.display = "none";
+      }).catch(() => {
+        alert("El navegador bloqueó el inicio automático. Intenta hacer clic nuevamente.");
+      });
+    });
+  </script>
+
+</body>

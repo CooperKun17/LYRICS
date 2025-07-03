@@ -1,0 +1,35 @@
+/* Imagen de fondo con oscurecimiento sutil */
+body {
+  font-family: sans-serif;
+  background: url('fondo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Estilo de letra activa */
+.highlight {
+  color: #3b38f8da;
+  font-size: 1.4em;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  transition: all 0.3s ease;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
